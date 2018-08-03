@@ -3,7 +3,7 @@ let restaurants,
   cuisines
 var newMap
 var markers = []
-
+navigator.serviceWorker.register('js/sw.js');
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -83,7 +83,8 @@ initMap = () => {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
       'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets'
+    id: 'mapbox.streets',
+    tabindex: '-1'
   }).addTo(newMap);
 
   updateRestaurants();
@@ -160,6 +161,7 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
+  image.alt = restaurant.name + ' photo';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
