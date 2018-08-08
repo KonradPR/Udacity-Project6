@@ -262,7 +262,7 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
@@ -293,5 +293,19 @@ nav h1 a {
 	.filter-options select {
 		width: 94%;
 	}
+	#reviews-container li {
+		padding: 0 10px 10px;
+	}
+	#footer {
+		padding: 10px;
+	}
 
+}
+@media screen and (max-width: 860px) {
+  #restaurant-container {
+		padding-left: 10px;
+	}
+	#reviews-container {
+		padding-left: 10px;
+	}
 }

@@ -12,11 +12,13 @@ self.addEventListener('install', function(event) {
       '/img/8.jpg',
       '/img/9.jpg',
       '/img/10.jpg',
-      'dbhelper.js',
-      'main.js',
-      'restaurant_info.js',
-      '/index.html',
-      '/restaurant.html'
+      'js/dbhelper.js',
+      'js/main.js',
+      'js/restaurant_info.js',
+      'index.html',
+      'restaurant.html',
+      'register.js',
+      '/'
     ];
 
     event.waitUntil(
@@ -28,10 +30,8 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    catches.match(event.request).then(function(response) {
-     if(response) return response;
-     if(event.request)
-     return fetch(event.request)
+    caches.match(event.request).then(function(response) {
+    return response || fetch(event.request);
     })
   );
 });
